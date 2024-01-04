@@ -9,6 +9,8 @@ import Faq from "../Preparation/Faq";
 import heroImage from "@/app/hero.png";
 import Image from "next/image";
 import Footer from "../Footer";
+import Head from 'next/head';
+
 // import MenuBar from '../MenuBar'; // 确保路径正确
 // import Projects from "../Projects";
 
@@ -21,6 +23,10 @@ function IntroInformation({
 }) {
   return (
     <WrappedContainer>
+      <Head>
+      <script  async={true} defer data-domain="tiktokwrapped.me" src="https://tj.misew.top/js/script.js"></script>
+
+      </Head>
        {/* <MenuBar /> */}
       <div className="grid md:grid-cols-2 gap-6 p-6 md:p-12">
         <div className="flex flex-col justify-center gap-6 text-left">
