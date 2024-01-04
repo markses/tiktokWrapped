@@ -8,7 +8,7 @@ import getShareUrl from "@/lib/utils/getShareUrl";
 import { Loader2, Share2 } from "lucide-react";
 import shareImage from "@/lib/utils/shareImage";
 import { trackEvent } from "@/lib/analytics";
-import Projects from "@/components/Projects";
+// import Projects from "@/components/Projects";
 
 function Roundup({ statistics, persona }: WrappedSlideProps) {
   const { amount: totalWatchTimeAmount, unit: totalWatchTimeUnit } =
@@ -286,7 +286,7 @@ function Roundup({ statistics, persona }: WrappedSlideProps) {
             )}
           </Button>
 
-          <Projects />
+          {/* <Projects /> */}
         </div>
       </div>
     </WrappedContainer>
