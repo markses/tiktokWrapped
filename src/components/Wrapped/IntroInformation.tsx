@@ -9,7 +9,7 @@ import Faq from "../Preparation/Faq";
 import heroImage from "@/app/hero.png";
 import Image from "next/image";
 import Footer from "../Footer";
-import MenuBar from '../MenuBar'; // 确保路径正确
+// import MenuBar from '../MenuBar'; // 确保路径正确
 // import Projects from "../Projects";
 
 function IntroInformation({
