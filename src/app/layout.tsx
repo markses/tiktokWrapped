@@ -5,8 +5,8 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Wrapped for TikTok",
-  description: "Get insights into your time on TikTok 🚀",
+  title: "TikTok Wrapped: Discover Your Year in Videos",
+  description: "Explore your top TikTok moments with TikTok Wrapped. Relive your favorite videos and trends from the past year ,Join the journey of your TikTok memories today!",
 };
 
 export default function RootLayout({

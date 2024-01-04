@@ -9,7 +9,8 @@ import Faq from "../Preparation/Faq";
 import heroImage from "@/app/hero.png";
 import Image from "next/image";
 import Footer from "../Footer";
-import Projects from "../Projects";
+import MenuBar from '../MenuBar'; // 确保路径正确
+// import Projects from "../Projects";
 
 function IntroInformation({
   onContinue,
@@ -20,30 +21,27 @@ function IntroInformation({
 }) {
   return (
     <WrappedContainer>
+       {/* <MenuBar /> */}
       <div className="grid md:grid-cols-2 gap-6 p-6 md:p-12">
         <div className="flex flex-col justify-center gap-6 text-left">
-          <FatHeading>Wrapped for TikTok</FatHeading>
-          <InfoText>Get insights into your time on TikTok 🚀</InfoText>
+          <FatHeading>TikTok Wrapped 2023: Your Year in Review</FatHeading>
+          <InfoText>Explore your top TikTok moments with TikTok Wrapped. Relive your favorite videos and trends from the past year ,Join the journey of your TikTok memories today!</InfoText>
 
+
+         
           <div className="max-w-xl">
-            <MutedText className="break-words hyphens-auto">
-              Wrapped for TikTok gives you stats on your TikTok activity.
-              <br />
-              To use it, you'll need your TikTok data export from{" "}
-              <a
-                href="https://www.tiktok.com/setting/download-your-data"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline font-bold"
-              >
-                https://www.tiktok.com/setting/download-your-data
-              </a>{" "}
-              in the "<strong>JSON - Machine-readable file</strong>" file
-              format.
-              <br />
-              Your exported data does not include login credentials! For more
-              info on how to verify this, look at the FAQ section below.
-            </MutedText>
+          <FatHeading className="mt-12 mb-6 text-2xl" component="h2" >
+          How it works
+             </FatHeading>
+             <MutedText className="break-words hyphens-auto">
+  Uncover the story of your TikTok journey with 'Wrapped for TikTok'!
+  <br /><br />
+  Dive into your TikTok stats by downloading your data in the <strong>'JSON - Machine-readable file'</strong> format from TikTok Data Download. {" "}
+  {/* 链接部分 */}
+  <br /><br />
+  Your exported data does not include login credentials! For more info on how to verify this, look at the FAQ section below.
+</MutedText>
+
           </div>
 
           <div className="flex flex-col gap-4">
@@ -83,7 +81,7 @@ function IntroInformation({
         </div>
       </div>
 
-      <FatHeading className="mt-12 mb-6 text-xl">A quick tutorial</FatHeading>
+      {/* <FatHeading className="mt-12 mb-6 text-xl">A quick tutorial</FatHeading>
       <iframe
         width="560"
         height="315"
@@ -92,16 +90,16 @@ function IntroInformation({
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
         className="max-w-[80vw]"
-      ></iframe>
+      ></iframe> */}
 
-      <FatHeading className="mt-12 mb-6 text-xl">
+      <FatHeading className="mt-12 mb-6 text-xl"  component="span">
         Frequently Asked Questions
       </FatHeading>
       <Faq />
 
-      <Projects />
+      {/* <Projects /> */}
 
-      <div className="max-w-lg mx-auto mt-6 text-sm font-medium text-zinc-600 text-left">
+      {/* <div className="max-w-lg mx-auto mt-6 text-sm font-medium text-zinc-600 text-left">
         <strong>For the Search Engines:</strong>
         <p>
           Welcome to Wrapped for TikTok - Your Ultimate Source for TikTok
@@ -153,7 +151,7 @@ function IntroInformation({
           TikTok enthusiasts who use Wrapped for TikTok to deliver accurate,
           reliable, and actionable statistics.
         </p>
-      </div>
+      </div> */}
 
       <Footer />
     </WrappedContainer>
