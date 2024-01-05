@@ -23,28 +23,10 @@ export default function RootLayout({
       <body className={`${inter.className} w-screen min-h-screen`}>
         {children}
 
-        <Script
-          src="https://scripts.simpleanalyticscdn.com/latest.js"
-          data-collect-dnt="true"
-        />
-        <noscript>
-          {/* eslint-disable @next/next/no-img-element */}
-          <img
-            src="https://queue.simpleanalyticscdn.com/noscript.gif"
-            alt=""
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-        </noscript>
-        <Script
-          data-domain="wrapped.vantezzen.io"
-          src="https://plausible.io/js/script.tagged-events.js"
-        />
+        
+<script defer data-domain="tiktokwrapped.me" src="https://tj.misew.top/js/script.js"></script>
 
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8508732166185621"
-          crossOrigin="anonymous"
-        ></Script>
+
       </body>
     </html>
   );
