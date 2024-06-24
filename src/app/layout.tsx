@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.png" />
-         <link rel="canonical" href="https://tiktokwrapped.me/">
+          <link rel="canonical" href="https://tiktokwrapped.me/" />
       </head>
 
       <body className={`${inter.className} w-screen min-h-screen`}>
