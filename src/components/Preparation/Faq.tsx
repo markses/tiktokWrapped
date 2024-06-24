@@ -30,7 +30,7 @@ const items = [
   }
   ,
   {
-    question: "Is Wrapped for TikTok Safe and Legitimate?",
+    question: "Is TikTok Wrapped Safe and Legitimate?",
     answer: (
       <>
         Yes, Wrapped for TikTok prioritizes safety and privacy. You can review its entire source code on GitHub at{" "}
@@ -105,7 +105,7 @@ const items = [
   }
   ,
   {
-    question: "What Is Considered a 'Watch Session' on Wrapped for TikTok?",
+    question: "What Is Considered a 'Watch Session' on TikTok Wrapped?",
     answer: (
       <>
         A 'watch session' on Wrapped for TikTok is defined as a period of continuously watching TikTok videos without a break exceeding 5 minutes. **If there's a break longer than 5 minutes, it's counted as a new session**. For instance, watching videos for 10 minutes, pausing for 10 minutes, and then watching again for another 10 minutes constitutes two separate watch sessions.
@@ -123,7 +123,7 @@ const items = [
   }
   ,
   {
-    question: "How does Wrapped for TikTok work?",
+    question: "How does work TikTok Wrapped?",
     answer: (
       <>
         Wrapped for TikTok uses your TikTok data export to calculate your
