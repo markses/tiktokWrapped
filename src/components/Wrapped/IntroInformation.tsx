@@ -25,7 +25,7 @@ function IntroInformation({
        {/* <MenuBar /> */}
       <div className="grid md:grid-cols-2 gap-6 p-6 md:p-12">
         <div className="flex flex-col justify-center gap-6 text-left">
-          <FatHeading>TikTok Wrapped 2023: Your Year in Review</FatHeading>
+          <FatHeading>TikTok Wrapped: Your Year in Review</FatHeading>
           <InfoText>Explore your top TikTok moments with TikTok Wrapped. Relive your favorite videos and trends from the past year ,Join the journey of your TikTok memories today!</InfoText>
 
 
