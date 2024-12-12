@@ -1,6 +1,7 @@
 import React from "react";
 import WrappedContainer, { WrappedSlideProps } from "../WrappedContainer";
 import dayjs from "dayjs";
+import InfoText from "@/components/Wrapped/InfoText";
 import FatHeading from "../FatHeading";
 import CountUp from "react-countup";
 import HideForTime from "../HideForTime";
