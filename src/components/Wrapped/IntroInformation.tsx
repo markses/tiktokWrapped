@@ -1,7 +1,6 @@
 import React from "react";
 import WrappedContainer from "./WrappedContainer";
 import FatHeading from "./FatHeading";
-import InfoText from "./InfoText";
 import MutedText from "./MutedText";
 import { Button } from "../ui/button";
 import { ArrowRight, ExternalLink, PlugZap } from "lucide-react";
