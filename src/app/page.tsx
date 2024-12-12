@@ -2,18 +2,22 @@
 import Wrapped from "@/lib/Wrapped";
 import React from "react";
 import dynamic from "next/dynamic";
+import Image from 'next/image';
+import Link from 'next/link';
 import FileUpload from "@/components/Preparation/FileUpload";
 import WrappedCreator from "@/lib/WrappedCreator";
 import WrappedContainer from "@/components/Wrapped/WrappedContainer";
 import FatHeading from "@/components/Wrapped/FatHeading";
 import InfoText from "@/components/Wrapped/InfoText";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Loader2 } from "lucide-react";
+import { ExternalLink, ArrowRight, PlugZap, Loader2 } from "lucide-react";
 import IntroInformation from "@/components/Wrapped/IntroInformation";
 import SpotifyFramePlayer from "@/lib/Spotify/FramePlayer";
 import SpotifyPlayer from "@/components/Wrapped/SpotifyPlayer";
 import SpotifyInfoText from "@/components/Wrapped/SpotifyInfoText";
 import MutedText from "@/components/Wrapped/MutedText";
+import Faq from "@/components/Preparation/Faq";
+import heroImage from "@/app/hero.png";
 import dayjs from "dayjs";
 import localizedFormat from "dayjs/plugin/localizedFormat";
 import { trackEvent } from "@/lib/analytics";
@@ -39,28 +43,104 @@ function TikTokWrappedAppPage() {
   const [spotify, setSpotify] = React.useState<SpotifyFramePlayer | null>(null);
 
   return (
-    <div>
+    <div className="min-h-screen bg-cream-100 text-brown-900">
       <SpotifyPlayer />
 
       {page === "intro" && (
-        <IntroInformation
-          onContinue={() => setPage("upload")}
-          onDemo={async () => {
-            trackEvent("demo");
-            setPage("loading");
+        <main className="container mx-auto px-4 py-8 max-w-4xl">
+          <h1 className="text-2xl md:text-2xl font-bold text-center mb-8">
+          TikTok Wrapped: Discover and Relive Your Top TikTok Moments | Wrapped for TikTok
+          </h1>
+          <div className="flex flex-col items-center space-y-4 mb-12">
 
-            const creator = new WrappedCreator();
-            const wrapped = creator.forDemoMode();
-            setWrapped(wrapped);
+          <Button
+              className="bg-[#8B4513] hover:bg-[#654321] text-white w-64"
+              onClick={() => setPage("upload")}
+            >
+               start now
+              <ArrowRight className="ml-2" size={16} />
+            </Button>
+        
+       
+            <Button
+              className="bg-[#CD853F] hover:bg-[#DEB887] text-white w-64"
+              onClick={async () => {
+                trackEvent("demo");
+                setPage("loading");
 
-            const spotify = new SpotifyFramePlayer();
-            await spotify.loadLibrary();
-            setSpotify(spotify);
+                const creator = new WrappedCreator();
+                const wrapped = creator.forDemoMode();
+                setWrapped(wrapped);
 
-            trackEvent("demo_ready");
-            setPage("demo");
-          }}
-        />
+                const spotify = new SpotifyFramePlayer();
+                await spotify.loadLibrary();
+                setSpotify(spotify);
+
+                trackEvent("demo_ready");
+                setPage("demo");
+              }}
+            >
+              Show demo Wrapped
+              <PlugZap className="ml-2" size={16} />
+            </Button>
+          </div>
+
+
+          <div className="mb-12">
+            <Image
+              src={heroImage}
+              alt="Wrapped for TikTok"
+              width={1080}
+              height={1920}
+              className="rounded-lg shadow-lg mx-auto"
+              style={{
+                maxHeight: "70vh",
+                width: "auto",
+                objectFit: "contain",
+              }}
+            />
+          </div>
+
+          <section className="mb-12 text-center">
+            <h2 className="text-2xl font-bold mb-4">How does TikTok Wrapped work</h2>
+            <p className="mb-4">
+              Uncover the story of your TikTok journey with 'Wrapped for TikTok'!
+            </p>
+            <p>
+              Dive into your TikTok stats by downloading your data in the
+              <strong>'JSON - Machine-readable file'</strong> format from TikTok Data Download.
+            </p>
+            <p className="mt-4">
+              Your exported data does not include login credentials! For more info on how to verify this, look at the FAQ section below.
+            </p>
+          </section>
+
+          <section className="text-center mb-12 text-blue-500">
+  Explore your most memorable TikTok moments with TikTok Wrapped. Dive into your top videos, favorite trends, and relive the highlights. Join the journey of your TikTok memories today with Wrapped for TikTok!
+  
+  
+<div className="flex justify-center mt-6">
+  <Button
+    className="bg-[#8B4513] hover:bg-[#654321] text-white w-64"
+    onClick={() => setPage('upload')}
+  >
+    Start Now
+    <ArrowRight className="ml-2" size={16} />
+  </Button>
+  </div>
+
+</section>
+
+
+
+
+      
+          <section className="text-center">
+            <h2 className="text-2xl font-bold mb-4">Frequently Asked Questions</h2>
+            <Faq />
+          </section>
+
+        </main>
       )}
 
       {page === "upload" && (

@@ -41,8 +41,16 @@ function FileUpload({ onFileSelect }: { onFileSelect: (file: File) => void }) {
           }}
         >
           <File size={16} className="mr-2" />
-          Select file
+          I have my TikTok file
         </Button>
+
+        <Button
+              className="bg-[#D2691E] hover:bg-[#8B4513] text-white w-54"
+              onClick={() => window.open("https://www.tiktok.com/setting/download-your-data", "_blank")}
+            >
+              Download TikTok data
+             
+            </Button>
       </label>
 
       <input

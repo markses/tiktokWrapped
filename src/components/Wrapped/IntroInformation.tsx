@@ -25,9 +25,8 @@ function IntroInformation({
        {/* <MenuBar /> */}
       <div className="grid md:grid-cols-2 gap-6 p-6 md:p-12">
         <div className="flex flex-col justify-center gap-6 text-left">
-          <FatHeading>TikTok Wrapped: Discover and Relive Your Top TikTok Moments | Wrapped for TikTok</FatHeading>
-          <InfoText>Explore your most memorable TikTok moments with TikTok Wrapped. Dive into your top videos, favorite trends, and relive the highlights. Join the journey of your TikTok memories today with Wrapped for TikTok!</InfoText>
-
+          <FatHeading> TikTok Wrapped: Discover and Relive Your Top TikTok Moments | Wrapped for TikTok</FatHeading>
+         
 
          
           <div className="max-w-xl">
