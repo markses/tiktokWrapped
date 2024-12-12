@@ -11,7 +11,7 @@ import { ArrowRight, PlugZap, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SpotifyFramePlayer from "@/lib/Spotify/FramePlayer";
 import SpotifyPlayer from "@/components/Wrapped/SpotifyPlayer";
-import InfoText from "@/components/Wrapped/InfoText";
+import { InfoText } from "@/components/Wrapped/InfoText";
 import MutedText from "@/components/Wrapped/MutedText";
 import Faq from "@/components/Preparation/Faq";
 import heroImage from "@/app/hero.png";
