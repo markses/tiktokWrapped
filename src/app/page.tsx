@@ -7,11 +7,11 @@ import FileUpload from "@/components/Preparation/FileUpload";
 import WrappedCreator from "@/lib/WrappedCreator";
 import WrappedContainer from "@/components/Wrapped/WrappedContainer";
 import FatHeading from "@/components/Wrapped/FatHeading";
+import { ArrowRight, PlugZap, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, ArrowRight, PlugZap, Loader2 } from "lucide-react";
 import SpotifyFramePlayer from "@/lib/Spotify/FramePlayer";
 import SpotifyPlayer from "@/components/Wrapped/SpotifyPlayer";
-import SpotifyInfoText from "@/components/Wrapped/SpotifyInfoText";
+import InfoText from "@/components/Wrapped/InfoText";
 import MutedText from "@/components/Wrapped/MutedText";
 import Faq from "@/components/Preparation/Faq";
 import heroImage from "@/app/hero.png";
@@ -20,6 +20,7 @@ import localizedFormat from "dayjs/plugin/localizedFormat";
 import { trackEvent } from "@/lib/analytics";
 import HideForTime from "@/components/Wrapped/HideForTime";
 import * as Sentry from "@sentry/nextjs";
+import SpotifyInfoText from "@/components/Wrapped/SpotifyInfoText";
 dayjs.extend(localizedFormat);
 
 const WrappedPlayerComponent = dynamic(
