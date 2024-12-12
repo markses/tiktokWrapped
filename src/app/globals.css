@@ -35,10 +35,10 @@
   --radius: 0.5rem;
 }
 
-@layer base {
-  body {
-    @apply bg-cream-100 text-brown-900;
-  }
+@layer utilities {
+    .bg-cream-100 {
+        background-color: #f3e9e2; /* 示例颜色，您可以根据需要修改 */
+    }
 }
 
 @layer components {
