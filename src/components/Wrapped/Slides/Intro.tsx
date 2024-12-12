@@ -1,6 +1,6 @@
 import React from "react";
 import FatHeading from "../FatHeading";
-import InfoText from "../InfoText";
+import { InfoText } from "@/components/Wrapped/InfoText";
 import HideForTime from "../HideForTime";
 import WrappedContainer, { WrappedSlideProps } from "../WrappedContainer";
 
