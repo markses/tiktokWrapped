@@ -35,6 +35,10 @@
   --radius: 0.5rem;
 }
 
+body {
+  background-color: #ffffff; /* 设置全局背景颜色为白色 */
+}
+
 @layer utilities {
     .bg-cream-100 {
         background-color: #f3e9e2; /* 示例颜色，您可以根据需要修改 */
@@ -45,4 +49,23 @@
   .btn {
     @apply px-4 py-2 rounded-md transition-colors duration-200 ease-in-out;
   }
+}
+.container h1 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+.container h2 {
+  font-size: 1.5em;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+.container p {
+  margin-bottom: 1em;
+}
+
+.container ol, .container ul {
+  margin-left: 1.5em;
+  margin-bottom: 1em;
 }

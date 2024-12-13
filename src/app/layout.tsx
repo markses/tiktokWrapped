@@ -6,8 +6,8 @@ import Footer from "@/components/Footer"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "TikTok Wrapped: Discover Your Year in Videos",
-  description: "Explore your top TikTok moments with TikTok Wrapped. Relive your favorite videos and trends from the past year, Join the journey of your TikTok memories today!",
+  title: "TikTok Wrapped|tt wrapped: Discover Your Year in Videos & wrapped for tiktok",
+  description: "Explore your top TikTok moments with TikTok Wrapped. Relive your favorite videos and trends from the past year, Join the journey of your TikTok memories today!Let's go,Wrapped for tiktok",
 }
 
 export default function RootLayout({
@@ -17,7 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} flex flex-col min-h-screen bg-cream-100`}>
+        <link rel="icon" href="/favicon.png" />
+          <link rel="canonical" href="https://tiktokwrapped.me/" />
+      <body className={`${inter.className} flex flex-col min-h-screen`}>
         <Header />
         <main className="flex-grow">{children}</main>
         <Footer />
