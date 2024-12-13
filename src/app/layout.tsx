@@ -6,8 +6,8 @@ import Footer from "@/components/Footer"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "TikTok Wrapped: Discover Your Year in Videos",
-  description: "Explore your top TikTok moments with TikTok Wrapped. Relive your favorite videos and trends from the past year, Join the journey of your TikTok memories today!",
+  title: "TikTok Wrapped|tt wrapped: Discover Your Year in Videos & wrapped for tiktok",
+  description: "Explore your top TikTok moments with TikTok Wrapped. Relive your favorite videos and trends from the past year, Join the journey of your TikTok memories today!Let's go,Wrapped for tiktok",
 }
 
 export default function RootLayout({
