@@ -17,6 +17,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+        <link rel="icon" href="/favicon.png" />
+          <link rel="canonical" href="https://tiktokwrapped.me/" />
       <body className={`${inter.className} flex flex-col min-h-screen bg-cream-100`}>
         <Header />
         <main className="flex-grow">{children}</main>
