@@ -17,14 +17,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
         <link rel="icon" href="/favicon.png" />
-          <link rel="canonical" href="https://tiktokwrapped.me/" />
+        <link rel="canonical" href="https://tiktokwrapped.me/" />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1687617950079399"
+          crossOrigin="anonymous"
+        ></script>
+      </head>
       <body className={`${inter.className} flex flex-col min-h-screen bg-cream-100`}>
         <Header />
         <main className="flex-grow">{children}</main>
         <Footer />
         <script defer data-domain="tiktokwrapped.me" src="https://tj.misew.top/js/script.js"></script>
-        </body>
+      </body>
     </html>
   )
 }

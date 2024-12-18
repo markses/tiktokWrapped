@@ -3,40 +3,36 @@
 @tailwind utilities;
 
 :root {
-  --background: 255 249 230;
-  --foreground: 60 25 0;
+  --background: 255 255 255;
+  --foreground: 24 24 27;
   
-  --muted: 251 245 226;
-  --muted-foreground: 90 55 30;
+  --primary: 254 44 85;  /* TikTok 红 */
+  --primary-foreground: 255 255 255;
   
-  --popover: 255 249 230;
-  --popover-foreground: 60 25 0;
+  --secondary: 37 244 238; /* TikTok 青 */
+  --secondary-foreground: 0 0 0;
   
-  --card: 255 249 230;
-  --card-foreground: 60 25 0;
+  --accent: 69 44 254; /* 活力紫 */
+  --accent-foreground: 255 255 255;
   
-  --border: 214 211 198;
-  --input: 214 211 198;
+  --muted: 244 244 245;
+  --muted-foreground: 113 113 122;
   
-  --primary: 139 69 19;
-  --primary-foreground: 255 249 230;
-  
-  --secondary: 214 211 198;
-  --secondary-foreground: 60 25 0;
-  
-  --accent: 214 211 198;
-  --accent-foreground: 60 25 0;
-  
-  --destructive: 192 0 0;
-  --destructive-foreground: 255 249 230;
-  
-  --ring: 139 69 19;
-  
-  --radius: 0.5rem;
+  --gradient-start: 254 44 85;
+  --gradient-end: 37 244 238;
 }
 
 body {
-  background-color: #ffffff; /* 设置全局背景颜色为白色 */
+  background: linear-gradient(
+    135deg,
+    rgb(var(--background)) 0%,
+    rgb(var(--muted)) 100%
+  );
+}
+
+/* 添加全局渐变效果类 */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-[rgb(var(--primary))] to-[rgb(var(--secondary))];
 }
 
 @layer utilities {
@@ -68,4 +64,23 @@ body {
 .container ol, .container ul {
   margin-left: 1.5em;
   margin-bottom: 1em;
+}
+
+@keyframes gradient-x {
+  0% {
+    background-size: 200% 100%;
+    background-position: left center;
+  }
+  50% {
+    background-size: 200% 100%;
+    background-position: right center;
+  }
+  100% {
+    background-size: 200% 100%;
+    background-position: left center;
+  }
+}
+
+.animate-gradient-x {
+  animation: gradient-x 8s linear infinite;
 }

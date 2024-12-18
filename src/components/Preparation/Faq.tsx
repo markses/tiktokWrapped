@@ -179,5 +179,5 @@ function Faq() {
     </Accordion>
   );
 }
-
 export default Faq;
+

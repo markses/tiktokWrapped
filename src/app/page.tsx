@@ -21,6 +21,7 @@ import { trackEvent } from "@/lib/analytics";
 import HideForTime from "@/components/Wrapped/HideForTime";
 import * as Sentry from "@sentry/nextjs";
 import SpotifyInfoText from "@/components/Wrapped/SpotifyInfoText";
+import AnimatedTitle from '@/components/AnimatedTitle';
 dayjs.extend(localizedFormat);
 
 const WrappedPlayerComponent = dynamic(
@@ -41,56 +42,59 @@ function TikTokWrappedAppPage() {
   const [spotify, setSpotify] = React.useState<SpotifyFramePlayer | null>(null);
 
   return (
-    <div className="min-h-screen bg-cream-100 text-brown-900">
+    <div className="min-h-screen bg-gradient-to-b from-white to-[rgb(var(--muted))]">
       <SpotifyPlayer />
 
       {page === "intro" && (
         <main className="container mx-auto px-4 py-8 max-w-4xl">
-          <h1 className="text-2xl md:text-2xl font-bold text-center mb-8">
-          TikTok Wrapped: Discover and Relive Your Top TikTok Moments | Wrapped for TikTok
-          </h1>
+          <AnimatedTitle />
+
           <div className="flex flex-col items-center space-y-4 mb-12">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                className="bg-gradient-to-r from-[#FF6B81] to-[#70E1E1] hover:opacity-90 
+                         text-white font-medium text-lg px-8 py-3 min-w-[200px]
+                         group relative overflow-hidden"
+                onClick={() => setPage("upload")}
+              >
+                Start Now
+                <ArrowRight className="ml-2" size={16} />
+              </Button>
+              
+              <Button 
+                variant="outline"
+                className="font-medium text-lg px-8 py-3 min-w-[200px]
+                         group relative overflow-hidden border-2"
+                onClick={async () => {
+                  trackEvent("demo");
+                  setPage("loading");
 
-          <Button
-              className="bg-[#8B4513] hover:bg-[#654321] text-white w-64"
-              onClick={() => setPage("upload")}
-            >
-               start now
-              <ArrowRight className="ml-2" size={16} />
-            </Button>
-        
-       
-            <Button
-              className="bg-[#CD853F] hover:bg-[#DEB887] text-white w-64"
-              onClick={async () => {
-                trackEvent("demo");
-                setPage("loading");
+                  const creator = new WrappedCreator();
+                  const wrapped = creator.forDemoMode();
+                  setWrapped(wrapped);
 
-                const creator = new WrappedCreator();
-                const wrapped = creator.forDemoMode();
-                setWrapped(wrapped);
+                  const spotify = new SpotifyFramePlayer();
+                  await spotify.loadLibrary();
+                  setSpotify(spotify);
 
-                const spotify = new SpotifyFramePlayer();
-                await spotify.loadLibrary();
-                setSpotify(spotify);
-
-                trackEvent("demo_ready");
-                setPage("demo");
-              }}
-            >
-              Show demo Wrapped
-              <PlugZap className="ml-2" size={16} />
-            </Button>
+                  trackEvent("demo_ready");
+                  setPage("demo");
+                }}
+              >
+                Show Demo
+                <PlugZap className="ml-2" size={16} />
+              </Button>
+            </div>
           </div>
 
-
-          <div className="mb-12">
+          <div className="mb-12 relative">
+            <div className="absolute inset-0 bg-gradient-to-t from-white/50 to-transparent rounded-lg"></div>
             <Image
               src={heroImage}
               alt="Wrapped for TikTok"
               width={1080}
               height={1920}
-              className="rounded-lg shadow-lg mx-auto"
+              className="rounded-lg shadow-xl mx-auto hover:shadow-2xl transition-shadow duration-300"
               style={{
                 maxHeight: "70vh",
                 width: "auto",
@@ -100,32 +104,68 @@ function TikTokWrappedAppPage() {
           </div>
 
           <section className="mb-12 text-center">
-            <h2 className="text-2xl font-bold mb-4">How does TikTok Wrapped work</h2>
-            <p className="mb-4">
-              Uncover the story of your TikTok journey with 'Wrapped for TikTok'!
-            </p>
-            <p>
-              Dive into your TikTok stats by downloading your data in the
-              <strong>'JSON - Machine-readable file'</strong> format from TikTok Data Download.
-            </p>
-            <p className="mt-4">
-              Your exported data does not include login credentials! For more info on how to verify this, look at the FAQ section below.
-            </p>
+            <h2 className="text-2xl font-bold mb-6 gradient-text">How to Use TikTok Wrapped</h2>
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-lg">
+              <div className="grid gap-6 max-w-2xl mx-auto">
+                <div className="flex items-start gap-4 text-left">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-[#FF6B81] to-[#70E1E1] flex items-center justify-center text-white font-bold">
+                    1
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-800 mb-1">Request Your Data</h3>
+                    <p className="text-gray-600">Open TikTok Settings → Privacy → Request Data Download</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 text-left">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-[#FF6B81] to-[#70E1E1] flex items-center justify-center text-white font-bold">
+                    2
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-800 mb-1">Select Format</h3>
+                    <p className="text-gray-600">Choose <strong className="text-[rgb(var(--primary))]">'JSON - Machine-readable file'</strong> format</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 text-left">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-[#FF6B81] to-[#70E1E1] flex items-center justify-center text-white font-bold">
+                    3
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-800 mb-1">Wait for Email</h3>
+                    <p className="text-gray-600">TikTok will send you an email when your data is ready (usually within 24 hours)</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 text-left">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-[#FF6B81] to-[#70E1E1] flex items-center justify-center text-white font-bold">
+                    4
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-800 mb-1">Upload and Enjoy</h3>
+                    <p className="text-gray-600">Upload your data file here and discover your personalized TikTok Wrapped!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </section>
 
-          <section className="text-center mb-12 text-blue-500">
-  Explore your most memorable TikTok moments with TikTok Wrapped. Dive into your top videos, favorite trends, and relive the highlights. Join the journey of your TikTok memories today with Wrapped for TikTok!
+          <section className="text-center mb-12">
+            <p className="max-w-2xl mx-auto text-lg leading-relaxed text-gray-700 bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+              Explore your most memorable TikTok moments with TikTok Wrapped. Dive into your top videos, favorite trends, and relive the highlights. Join the journey of your TikTok memories today with Wrapped for TikTok!
+            </p>
   
-  
-<div className="flex justify-center mt-6">
-  <Button
-    className="bg-[#8B4513] hover:bg-[#654321] text-white w-64"
-    onClick={() => setPage('upload')}
-  >
-    Start Now
-    <ArrowRight className="ml-2" size={16} />
-  </Button>
-  </div>
+   <div className="text-center mt-8">
+              <Button 
+                className="bg-gradient-to-r from-[#FF6B81] to-[#70E1E1] hover:opacity-90 
+                         text-white font-medium text-lg px-8 py-3 min-w-[200px]
+                         group relative overflow-hidden"
+                onClick={() => setPage("upload")}
+              >
+                Start Now
+                <ArrowRight className="ml-2" size={16} />
+              </Button>
+            </div>
 
 </section>
 

@@ -1,159 +1,80 @@
-import React from "react";
-import WrappedContainer from "./WrappedContainer";
-import FatHeading from "./FatHeading";
-import MutedText from "./MutedText";
-import { Button } from "../ui/button";
-import { ArrowRight, ExternalLink, PlugZap } from "lucide-react";
-import Faq from "../Preparation/Faq";
-import heroImage from "@/app/hero.png";
-import Image from "next/image";
-import Footer from "../Footer";
+"use client";
 
-// import MenuBar from '../MenuBar'; // 确保路径正确
-// import Projects from "../Projects";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { CheckCircle2 } from "lucide-react";
 
-function IntroInformation({
-  onContinue,
-  onDemo,
-}: {
-  onContinue: () => void;
-  onDemo: () => void;
-}) {
+function IntroInformation() {
+  const steps = [
+    {
+      title: "Request Your Data",
+      description: "Go to TikTok Settings > Privacy > Request Data > Select 'JSON format'",
+    },
+    {
+      title: "Wait for Processing",
+      description: "TikTok will prepare your data within 24-48 hours",
+    },
+    {
+      title: "Download Your File",
+      description: "Once ready, download your data from TikTok",
+    },
+    {
+      title: "Upload and Generate",
+      description: "Upload your JSON file here to generate your personalized Wrapped",
+    },
+  ];
+
   return (
-    <WrappedContainer>
-       {/* <MenuBar /> */}
-      <div className="grid md:grid-cols-2 gap-6 p-6 md:p-12">
-        <div className="flex flex-col justify-center gap-6 text-left">
-          <FatHeading> TikTok Wrapped: Discover and Relive Your Top TikTok Moments | Wrapped for TikTok</FatHeading>
-         
-
-         
-          <div className="max-w-xl">
-          <FatHeading className="mt-12 mb-6 text-2xl" component="h2" >
-          How it works
-             </FatHeading>
-             <MutedText className="break-words hyphens-auto">
-  Uncover the story of your TikTok journey with 'Wrapped for TikTok'!
-  <br /><br />
-  Dive into your TikTok stats by downloading your data in the <strong>'JSON - Machine-readable file'</strong> format from TikTok Data Download. {" "}
-  {/* 链接部分 */}
-  <br /><br />
-  Your exported data does not include login credentials! For more info on how to verify this, look at the FAQ section below.
-</MutedText>
-
+    <div className="container mx-auto px-4 py-8 max-w-4xl">
+      <Card className="bg-white/80 backdrop-blur-sm">
+        <CardHeader className="space-y-4">
+          <CardTitle className="text-2xl md:text-3xl text-center gradient-text">
+            How to Use
+          </CardTitle>
+        </CardHeader>
+        
+        <CardContent className="space-y-8">
+          <div className="grid gap-6 md:grid-cols-2">
+            {steps.map((step, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-100"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-8 h-8 rounded-full bg-[rgb(var(--primary))] text-white flex items-center justify-center font-bold">
+                      {index + 1}
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-semibold text-lg mb-2 text-[rgb(var(--primary))]">
+                      {step.title}
+                    </h4>
+                    <p className="text-gray-600">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
 
-          <div className="flex flex-col gap-4">
-            <a
-              href="https://www.tiktok.com/setting/download-your-data"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button className="dark w-full">
-                Open TikTok and request my data export
-                <ExternalLink className="ml-2" size={16} />
-              </Button>
-            </a>
-            <Button onClick={onContinue} className="w-full">
-              I have my TikTok data export, let's go!
-              <ArrowRight className="ml-2" size={16} />
-            </Button>
-            <Button className="dark w-full bg-starship-100" onClick={onDemo}>
-              Show demo Wrapped
-              <PlugZap className="ml-2" size={16} />
-            </Button>
+          {/* Privacy notice */}
+          <div className="bg-gray-50 rounded-lg p-6">
+            <div className="flex items-start gap-3">
+              <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
+              <div>
+                <h4 className="font-semibold mb-2">Privacy First</h4>
+                <p className="text-gray-600 text-sm">
+                  Your data stays private and secure. All processing happens locally in your browser - 
+                  nothing is uploaded to any server. TikTok Wrapped is open-source, so you can verify 
+                  this yourself.
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div>
-          <Image
-            src={heroImage}
-            alt="Wrapped for TikTok"
-            width={1080}
-            height={1920}
-            style={{
-              maxHeight: "70vh",
-              objectFit: "contain",
-              borderRadius: 10,
-            }}
-          />
-        </div>
-      </div>
-
-      {/* <FatHeading className="mt-12 mb-6 text-xl">A quick tutorial</FatHeading>
-      <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube-nocookie.com/embed/uIvhVxNJAtc"
-        title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen
-        className="max-w-[80vw]"
-      ></iframe> */}
-
-      <FatHeading className="mt-12 mb-6 text-xl"  component="span">
-        Frequently Asked Questions
-      </FatHeading>
-      <Faq />
-
-      {/* <Projects /> */}
-
-      {/* <div className="max-w-lg mx-auto mt-6 text-sm font-medium text-zinc-600 text-left">
-        <strong>For the Search Engines:</strong>
-        <p>
-          Welcome to Wrapped for TikTok - Your Ultimate Source for TikTok
-          Activity Insights:
-        </p>
-        <p>
-          Are you looking to gain valuable insights into your TikTok activity?
-          Look no further than Wrapped for TikTok! It offers comprehensive stats
-          and analytics to help you understand your presence on TikTok.
-        </p>
-        <p>
-          With Wrapped for TikTok, you can easily access in-depth information
-          about your TikTok performance, including total videos viewed, watch
-          session length, and much more.
-        </p>
-        <p>
-          To get started, you'll need to download your TikTok data export from
-          the official TikTok website. Simply visit{" "}
-          <a href="https://www.tiktok.com/setting/download-your-data">
-            https://www.tiktok.com/setting/download-your-data
-          </a>{" "}
-          and request your data in the "JSON - Machine-readable file" format.
-          Don't worry, this file does not contain any sensitive information or
-          login credentials. For additional reassurance, please refer to our FAQ
-          section for a detailed explanation of how we handle your data.
-        </p>
-        <p>
-          At Wrapped for TikTok, we prioritize your privacy and security. Unlike
-          other platforms, your TikTok data is never uploaded or stored on our
-          servers. Our tool operates exclusively within your browser, ensuring
-          that your information remains confidential. We take pride in being a
-          privacy-centered service, committed to protecting your data at all
-          times.
-        </p>
-        <p>
-          To provide complete transparency, we have made the full source code of
-          Wrapped for TikTok available on GitHub. You can visit our GitHub
-          repository at{" "}
-          <a href="https://github.com/vantezzen/wrapped">
-            https://github.com/vantezzen/wrapped
-          </a>{" "}
-          to review the code and verify its integrity. We believe in openness
-          and accountability, and we want our users to have full confidence in
-          our platform.
-        </p>
-        <p>
-          Embrace the power of Wrapped for TikTok and uncover the insights that
-          will propel your TikTok journey forward. Join our growing community of
-          TikTok enthusiasts who use Wrapped for TikTok to deliver accurate,
-          reliable, and actionable statistics.
-        </p>
-      </div> */}
-
-      <Footer />
-    </WrappedContainer>
+        </CardContent>
+      </Card>
+    </div>
   );
 }
 

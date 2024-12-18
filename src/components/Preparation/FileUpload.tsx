@@ -1,72 +1,75 @@
 "use client";
 import React from "react";
-import FatHeading from "../Wrapped/FatHeading";
-import { Button } from "../ui/button";
-import { File } from "lucide-react";
-import MutedText from "../Wrapped/MutedText";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { ArrowRight, Upload } from "lucide-react";
 
-function FileUpload({ onFileSelect }: { onFileSelect: (file: File) => void }) {
-  const inputRef = React.useRef<HTMLInputElement>(null);
-
+export default function FileUpload({ onFileSelect }: { onFileSelect: (file: File) => void }) {
   return (
-    <div className="w-screen min-h-screen flex justify-center items-center flex-col gap-6 text-center bg-zinc-900 text-starship-400 dark p-6">
-      <FatHeading className="text-3xl">
-        Select your TikTok
-        <br />
-        data to get started
-      </FatHeading>
+    <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center p-4">
+      <Card className="w-full max-w-2xl">
+        <CardHeader>
+          <CardTitle className="text-center gradient-text">
+            Select your TikTok data to get started
+          </CardTitle>
+        </CardHeader>
+        
+        <CardContent className="space-y-6">
+          <div className="text-center text-gray-600">
+            <p className="mb-4">
+              Wrapped for TikTok needs your TikTok data to generate your statistics.
+            </p>
+            <p className="text-sm">
+              Your data will not be uploaded to any server, all statistics are generated locally in your browser.
+              <br />
+              Wrapped for TikTok is open-source if you want to verify this.
+            </p>
+          </div>
 
-      <MutedText className="!text-zinc-200 text-base">
-        Wrapped for TikTok needs your TikTok data to generate your statistics.
-        <br />
-        <br />
-        Your data will not be uploaded to any server, all statistics are
-        generated locally in your browser.
-        <br />
-        Wrapped for TikTok is{" "}
-        <a
-          href="https://github.com/vantezzen/wrapped"
-          className="underline"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          open-source
-        </a>{" "}
-        if you want to verify this.
-      </MutedText>
-      <label htmlFor="file-upload">
-        <Button
-          onClick={() => {
-            inputRef.current?.click();
-          }}
-        >
-          <File size={16} className="mr-2" />
-          I have my TikTok file
-        </Button>
-
-        <Button
-              className="bg-[#D2691E] hover:bg-[#8B4513] text-white w-54"
-              onClick={() => window.open("https://www.tiktok.com/setting/download-your-data", "_blank")}
+          <div className="border-2 border-dashed border-gray-200 rounded-xl p-8 text-center hover:border-[rgb(var(--primary))] transition-colors">
+            <input
+              type="file"
+              accept=".json"
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+                if (file) onFileSelect(file);
+              }}
+              className="hidden"
+              id="file-upload"
+            />
+            <label
+              htmlFor="file-upload"
+              className="cursor-pointer flex flex-col items-center gap-4"
             >
-              Download TikTok data
-             
-            </Button>
-      </label>
+              <Upload className="w-10 h-10 text-gray-400" />
+              <span className="text-gray-600">
+                Click to upload or drag and drop your file here
+              </span>
+            </label>
+          </div>
+        </CardContent>
 
-      <input
-        type="file"
-        accept=".zip,.json"
-        id="file-upload"
-        className="hidden"
-        ref={inputRef}
-        onChange={(e) => {
-          if (e.target.files) {
-            onFileSelect(e.target.files[0]);
-          }
-        }}
-      />
+        <CardFooter className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
+          <Button
+            variant="outline"
+            className="w-full sm:w-auto min-w-[160px] border-2 border-[rgb(var(--primary))] text-[rgb(var(--primary))] hover:bg-[rgb(var(--primary))] hover:text-white transition-colors"
+            onClick={() => {
+              const input = document.getElementById('file-upload') as HTMLInputElement;
+              input?.click();
+            }}
+          >
+            I have my TikTok file
+          </Button>
+          
+          <Button
+            className="w-full sm:w-auto min-w-[160px] bg-gradient-to-r from-[rgb(var(--primary))] to-[rgb(var(--secondary))] hover:opacity-90 text-white"
+            onClick={() => window.open('https://www.tiktok.com/setting/download-your-data', '_blank')}
+          >
+            Download TikTok data
+            <ArrowRight className="ml-2 w-4 h-4" />
+          </Button>
+        </CardFooter>
+      </Card>
     </div>
   );
 }
-
-export default FileUpload;
