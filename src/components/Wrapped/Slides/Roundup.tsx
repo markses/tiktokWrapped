@@ -26,7 +26,7 @@ function Roundup({ statistics, persona }: WrappedSlideProps) {
   const [isLoadingShareImage, setIsLoadingShareImage] = React.useState(false);
 
   return (
-    <WrappedContainer bg="bg-zinc-900" text="text-starship-400">
+    <WrappedContainer className="bg-zinc-900 text-starship-400">
       <div className="md:p-12">
         <h1 className="text-2xl font-black text-starship-400 animate-in slide-in-from-bottom fade-in duration-1000 pb-12">
           And you did so much more...

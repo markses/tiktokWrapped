@@ -6,7 +6,7 @@ import { Button } from "../ui/button";
 
 function SpotifyInfoText({ onContinue }: { onContinue: () => void }) {
   return (
-    <WrappedContainer bg="bg-zinc-900" text="text-starship-400">
+    <WrappedContainer className="bg-zinc-900 text-starship-400">
       <FatHeading>Better with Spotify</FatHeading>
       <MutedText className="!text-zinc-200 max-w-xl mx-auto">
         Wrapped for TikTok can play fitting songs during your Wrapped using the
