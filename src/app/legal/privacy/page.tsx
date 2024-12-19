@@ -1,16 +1,13 @@
-"use client";
 import LegalPage from "@/components/LegalPage";
-import Head from "next/head";
-import React from "react";
 
-function Terms() {
+export const metadata = {
+  title: 'Wrapped for TikTok - Privacy Policy',
+  robots: 'noindex'
+};
+
+export default function Terms() {
   return (
     <LegalPage>
-      <Head>
-        <title>Wrapped for TikTok - Privacy Policy</title>
-        <meta name="robots" content="noindex" />
-      </Head>
-
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 bg-gradient-to-br from-white to-gray-50">
         <div className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
           <h1 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8 gradient-text">Privacy Policy</h1>
@@ -223,5 +220,4 @@ function Terms() {
     </LegalPage>
   );
 }
-export default Terms;
 

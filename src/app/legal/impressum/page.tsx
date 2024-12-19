@@ -1,5 +1,4 @@
 import LegalPage from "@/components/LegalPage";
-import Head from "next/head";
 
 export const metadata = {
   title: 'Wrapped for TikTok - Impressum',
