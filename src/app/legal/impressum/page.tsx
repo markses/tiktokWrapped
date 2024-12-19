@@ -1,4 +1,3 @@
-"use client";
 import LegalPage from "@/components/LegalPage";
 import Head from "next/head";
 
