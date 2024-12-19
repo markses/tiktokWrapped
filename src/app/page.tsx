@@ -22,10 +22,9 @@ import HideForTime from "@/components/Wrapped/HideForTime";
 import * as Sentry from "@sentry/nextjs";
 import SpotifyInfoText from "@/components/Wrapped/SpotifyInfoText";
 import AnimatedTitle from '@/components/AnimatedTitle';
-import { Carousel } from "@/components/ui/carousel";
+import { Clock, MessageCircle, Heart, Share, Radio } from "lucide-react";
 import { Card } from "@/components/ui/card";
-import { ChevronLeft, ChevronRight, Clock, MessageSquare, Heart, Share, Video, Radio } from "lucide-react";
-dayjs.extend(localizedFormat);
+import { Carousel } from "@/components/ui/carousel";
 
 const WrappedPlayerComponent = dynamic(
   () => import("@/components/Wrapped/WrappedPlayerComponent"),
@@ -92,16 +91,16 @@ function TikTokWrappedAppPage() {
 
           <div className="mb-12">
             <div className="relative max-w-4xl mx-auto">
-              <Carousel className="overflow-hidden" autoPlayInterval={4000}>
+              <Carousel className="overflow-hidden">
                 <Card className="p-6 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg">
                   <div className="flex items-center gap-3 mb-4">
                     <Clock className="w-6 h-6 text-[#FF6B81]" />
-                    <p className="text-2xl font-bold">Watch Sessions</p>
+                    <h3 className="text-xl font-bold">Watch Sessions</h3>
                   </div>
-                  <div className="space-y-4">
-                    <div className="flex justify-between items-center">
-                      <p className="text-gray-600">Total Videos</p>
-                      <p className="text-2xl font-bold">81,737</p>
+                  <div className="space-y-3">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Total Videos</span>
+                      <span className="font-semibold">81,737</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">Watch Time</span>
@@ -120,13 +119,13 @@ function TikTokWrappedAppPage() {
 
                 <Card className="p-6 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg">
                   <div className="flex items-center gap-3 mb-4">
-                    <MessageSquare className="w-6 h-6 text-[#70E1E1]" />
-                    <p className="text-2xl font-bold">Comments</p>
+                    <MessageCircle className="w-6 h-6 text-[#70E1E1]" />
+                    <h3 className="text-xl font-bold">Comments</h3>
                   </div>
-                  <div className="space-y-4">
-                    <div className="flex justify-between items-center">
-                      <p className="text-gray-600">Total Comments</p>
-                      <p className="text-2xl font-bold">712</p>
+                  <div className="space-y-3">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Total Comments</span>
+                      <span className="font-semibold">712</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">Avg. Length</span>
@@ -144,10 +143,10 @@ function TikTokWrappedAppPage() {
                     <Heart className="w-6 h-6 text-[#FF6B81]" />
                     <p className="text-2xl font-bold">Likes</p>
                   </div>
-                  <div className="space-y-4">
-                    <div className="flex justify-between items-center">
-                      <p className="text-gray-600">Total Likes</p>
-                      <p className="text-2xl font-bold">8,237</p>
+                  <div className="space-y-3">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Total Likes</span>
+                      <span className="font-semibold">8,237</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">Most Active Day</span>
@@ -161,10 +160,10 @@ function TikTokWrappedAppPage() {
                     <Share className="w-6 h-6 text-[#70E1E1]" />
                     <p className="text-2xl font-bold">Shares</p>
                   </div>
-                  <div className="space-y-4">
-                    <div className="flex justify-between items-center">
-                      <p className="text-gray-600">Total Shares</p>
-                      <p className="text-2xl font-bold">293</p>
+                  <div className="space-y-3">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Total Shares</span>
+                      <span className="font-semibold">293</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">Most Active Day</span>
@@ -176,12 +175,12 @@ function TikTokWrappedAppPage() {
                 <Card className="p-6 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg">
                   <div className="flex items-center gap-3 mb-4">
                     <Radio className="w-6 h-6 text-[#FF6B81]" />
-                    <p className="text-2xl font-bold">Live</p>
+                    <h3 className="text-xl font-bold">Live</h3>
                   </div>
-                  <div className="space-y-4">
-                    <div className="flex justify-between items-center">
-                      <p className="text-gray-600">Lives Viewed</p>
-                      <p className="text-2xl font-bold">823</p>
+                  <div className="space-y-3">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Lives Viewed</span>
+                      <span className="font-semibold">823</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">Live Comments</span>
