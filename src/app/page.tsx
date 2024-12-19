@@ -18,7 +18,6 @@ import { Card } from "@/components/ui/card";
 import { Carousel } from "@/components/ui/carousel";
 import { trackEvent } from "@/lib/analytics";
 import HideForTime from "@/components/Wrapped/HideForTime";
-import * as Sentry from "@sentry/nextjs";
 import SpotifyInfoText from "@/components/Wrapped/SpotifyInfoText";
 import AnimatedTitle from '@/components/AnimatedTitle';
 
@@ -302,27 +301,13 @@ function TikTokWrappedAppPage() {
             try {
               console.log("stats", wrapped?.getStatistics());
             } catch (e) {
-              Sentry.captureException(
-                new Error("Exception when calculating statistics"),
-                {
-                  extra: {
-                    originalError: e,
-                  },
-                }
-              );
+              console.error(e);
             }
 
             try {
               wrapped?.getPersona();
             } catch (e) {
-              Sentry.captureException(
-                new Error("Exception when calculating persona"),
-                {
-                  extra: {
-                    originalError: e,
-                  },
-                }
-              );
+              console.error(e);
             }
 
             const spotify = new SpotifyFramePlayer();
