@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 interface HideForTimeProps {
   children: React.ReactNode;
   time: number;
 }
 
-export function HideForTime({ children, time }: HideForTimeProps) {
+const HideForTime = ({ children, time }: HideForTimeProps) => {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -22,3 +22,5 @@ export function HideForTime({ children, time }: HideForTimeProps) {
 
   return <>{children}</>;
 }
+
+export default HideForTime;
