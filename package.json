@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "SENTRY_IGNORE_SOURCE_MAP_UPLOAD=1 next build",
     "start": "next start",
     "lint": "next lint",
     "fix": "next lint --fix",
