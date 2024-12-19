@@ -223,5 +223,5 @@ function Terms() {
     </LegalPage>
   );
 }
-
 export default Terms;
+

@@ -1,22 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-function HideForTime({
-  children,
-  time,
-}: {
+interface HideForTimeProps {
   children: React.ReactNode;
   time: number;
-}) {
-  const [visible, setVisible] = React.useState(false);
-  useEffect(() => {
-    setTimeout(() => {
-      setVisible(true);
-    }, time);
-  }, []);
-
-  return (
-    <div className={`${visible ? "opacity-100" : "opacity-0"}`}>{children}</div>
-  );
 }
 
-export default HideForTime;
+export function HideForTime({ children, time }: HideForTimeProps) {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShow(true);
+    }, time);
+
+    return () => clearTimeout(timer);
+  }, [time]);
+
+  if (!show) {
+    return null;
+  }
+
+  return <>{children}</>;
+}

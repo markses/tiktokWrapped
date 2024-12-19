@@ -73,3 +73,7 @@ export default function FileUpload({ onFileSelect }: { onFileSelect: (file: File
     </div>
   );
 }
+
+export const someFunction = (_file: File) => {
+  // ... 函数内容
+};
