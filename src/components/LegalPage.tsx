@@ -1,11 +1,18 @@
 import React from "react";
+import { Metadata } from "next";
 import Footer from "./Footer";
 
-function LegalPage({ children }: { children: React.ReactNode }) {
+interface LegalPageProps {
+  children: React.ReactNode;
+}
+
+function LegalPage({ children }: LegalPageProps) {
   return (
-    <div className="bg-zinc-200 text-zinc-900">
-      <div className="prose max-w-lg mx-auto">{children}</div>
-      <Footer />
+    <div className="min-h-screen flex flex-col">
+      <main className="flex-grow">
+        {children}
+      </main>
+      {/* 只保留一个 Footer */}
     </div>
   );
 }

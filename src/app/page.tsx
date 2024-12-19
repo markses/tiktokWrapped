@@ -22,6 +22,9 @@ import HideForTime from "@/components/Wrapped/HideForTime";
 import * as Sentry from "@sentry/nextjs";
 import SpotifyInfoText from "@/components/Wrapped/SpotifyInfoText";
 import AnimatedTitle from '@/components/AnimatedTitle';
+import { Carousel } from "@/components/ui/carousel";
+import { Card } from "@/components/ui/card";
+import { ChevronLeft, ChevronRight, Clock, MessageSquare, Heart, Share, Video, Radio } from "lucide-react";
 dayjs.extend(localizedFormat);
 
 const WrappedPlayerComponent = dynamic(
@@ -87,20 +90,107 @@ function TikTokWrappedAppPage() {
             </div>
           </div>
 
-          <div className="mb-12 relative">
-            <div className="absolute inset-0 bg-gradient-to-t from-white/50 to-transparent rounded-lg"></div>
-            <Image
-              src={heroImage}
-              alt="Wrapped for TikTok"
-              width={1080}
-              height={1920}
-              className="rounded-lg shadow-xl mx-auto hover:shadow-2xl transition-shadow duration-300"
-              style={{
-                maxHeight: "70vh",
-                width: "auto",
-                objectFit: "contain",
-              }}
-            />
+          <div className="mb-12">
+            <div className="relative max-w-4xl mx-auto">
+              <Carousel className="overflow-hidden" autoPlayInterval={4000}>
+                <Card className="p-6 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Clock className="w-6 h-6 text-[#FF6B81]" />
+                    <p className="text-2xl font-bold">Watch Sessions</p>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-center">
+                      <p className="text-gray-600">Total Videos</p>
+                      <p className="text-2xl font-bold">81,737</p>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Watch Time</span>
+                      <span className="font-semibold">29 days</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Sessions</span>
+                      <span className="font-semibold">1,823</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Avg. Session</span>
+                      <span className="font-semibold">120 min</span>
+                    </div>
+                  </div>
+                </Card>
+
+                <Card className="p-6 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg">
+                  <div className="flex items-center gap-3 mb-4">
+                    <MessageSquare className="w-6 h-6 text-[#70E1E1]" />
+                    <p className="text-2xl font-bold">Comments</p>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-center">
+                      <p className="text-gray-600">Total Comments</p>
+                      <p className="text-2xl font-bold">712</p>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Avg. Length</span>
+                      <span className="font-semibold">29 chars</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Top Emoji</span>
+                      <span className="font-semibold">😂 (521)</span>
+                    </div>
+                  </div>
+                </Card>
+
+                <Card className="p-6 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Heart className="w-6 h-6 text-[#FF6B81]" />
+                    <p className="text-2xl font-bold">Likes</p>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-center">
+                      <p className="text-gray-600">Total Likes</p>
+                      <p className="text-2xl font-bold">8,237</p>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Most Active Day</span>
+                      <span className="font-semibold">92 likes</span>
+                    </div>
+                  </div>
+                </Card>
+
+                <Card className="p-6 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Share className="w-6 h-6 text-[#70E1E1]" />
+                    <p className="text-2xl font-bold">Shares</p>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-center">
+                      <p className="text-gray-600">Total Shares</p>
+                      <p className="text-2xl font-bold">293</p>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Most Active Day</span>
+                      <span className="font-semibold">12 shares</span>
+                    </div>
+                  </div>
+                </Card>
+
+                <Card className="p-6 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Radio className="w-6 h-6 text-[#FF6B81]" />
+                    <p className="text-2xl font-bold">Live</p>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-center">
+                      <p className="text-gray-600">Lives Viewed</p>
+                      <p className="text-2xl font-bold">823</p>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Live Comments</span>
+                      <span className="font-semibold">121</span>
+                    </div>
+                  </div>
+                </Card>
+              </Carousel>
+            </div>
           </div>
 
           <section className="mb-12 text-center">
