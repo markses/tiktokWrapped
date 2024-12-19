@@ -1,17 +1,16 @@
 "use client";
 import LegalPage from "@/components/LegalPage";
 import Head from "next/head";
-import React from "react";
 
-function Terms() {
+export const metadata = {
+  title: 'Wrapped for TikTok - Impressum',
+  robots: 'noindex'
+};
+
+export default function Terms() {
   return (
     <LegalPage>
-      <Head>
-        <title>Wrapped for TikTok - Impressum</title>
-        <meta name="robots" content="noindex" />
-      </Head>
-
-      <div className="mx-auto max-w-lg">
+      <div className="prose prose-sm sm:prose lg:prose-lg mx-auto">
         <h1>Impressum</h1>
 
         <p>Angaben gemäß § 5 TMG</p>
@@ -82,5 +81,3 @@ function Terms() {
     </LegalPage>
   );
 }
-
-export default Terms;

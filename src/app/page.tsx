@@ -2,7 +2,6 @@
 import Wrapped from "@/lib/Wrapped";
 import React from "react";
 import dynamic from "next/dynamic";
-import Image from 'next/image';
 import FileUpload from "@/components/Preparation/FileUpload";
 import WrappedCreator from "@/lib/WrappedCreator";
 import WrappedContainer from "@/components/Wrapped/WrappedContainer";
@@ -14,17 +13,14 @@ import SpotifyPlayer from "@/components/Wrapped/SpotifyPlayer";
 import InfoText from "@/components/Wrapped/InfoText";
 import MutedText from "@/components/Wrapped/MutedText";
 import Faq from "@/components/Preparation/Faq";
-import heroImage from "@/app/hero.png";
-import dayjs from "dayjs";
-import localizedFormat from "dayjs/plugin/localizedFormat";
+import { Clock, MessageCircle, Heart, Share, Radio } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { Carousel } from "@/components/ui/carousel";
 import { trackEvent } from "@/lib/analytics";
 import HideForTime from "@/components/Wrapped/HideForTime";
 import * as Sentry from "@sentry/nextjs";
 import SpotifyInfoText from "@/components/Wrapped/SpotifyInfoText";
 import AnimatedTitle from '@/components/AnimatedTitle';
-import { Clock, MessageCircle, Heart, Share, Radio } from "lucide-react";
-import { Card } from "@/components/ui/card";
-import { Carousel } from "@/components/ui/carousel";
 
 const WrappedPlayerComponent = dynamic(
   () => import("@/components/Wrapped/WrappedPlayerComponent"),
