@@ -91,7 +91,7 @@ function TikTokWrappedAppPage() {
                 <Card className="p-6 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg">
                   <div className="flex items-center gap-3 mb-4">
                     <Clock className="w-6 h-6 text-[#FF6B81]" />
-                    <h3 className="text-xl font-bold">Watch Sessions</h3>
+                    <p className="text-2xl font-bold">Watch Sessions</p>
                   </div>
                   <div className="space-y-3">
                     <div className="flex justify-between">
@@ -116,7 +116,7 @@ function TikTokWrappedAppPage() {
                 <Card className="p-6 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg">
                   <div className="flex items-center gap-3 mb-4">
                     <MessageCircle className="w-6 h-6 text-[#70E1E1]" />
-                    <h3 className="text-xl font-bold">Comments</h3>
+                    <p className="text-2xl font-bold">Comments</p>
                   </div>
                   <div className="space-y-3">
                     <div className="flex justify-between">
@@ -171,7 +171,7 @@ function TikTokWrappedAppPage() {
                 <Card className="p-6 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg">
                   <div className="flex items-center gap-3 mb-4">
                     <Radio className="w-6 h-6 text-[#FF6B81]" />
-                    <h3 className="text-xl font-bold">Live</h3>
+                    <p className="text-2xl font-bold">Live</p>
                   </div>
                   <div className="space-y-3">
                     <div className="flex justify-between">
