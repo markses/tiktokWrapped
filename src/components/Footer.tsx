@@ -83,6 +83,16 @@ const Footer = () => {
                   TikTok Emojis
                 </a>
               </li>
+                  <li>
+                <a 
+                  href="https://twitterwrapped.net/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-gray-600 hover:text-primary transition-colors"
+                >
+                  Twitter Wrapped
+                </a>
+              </li>
             </ul>
           </div>
 
